@@ -18,6 +18,18 @@
 		8327A8AE2085878D0097FB97 /* ImageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8AD2085878D0097FB97 /* ImageListViewController.m */; };
 		8327A8B1208587990097FB97 /* ImageListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8B0208587990097FB97 /* ImageListViewModel.m */; };
 		8327A8B4208587C70097FB97 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8B3208587C70097FB97 /* ImageItem.m */; };
+		83E6B9402085B53D00431DF1 /* img_abdomen in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B93F2085B53C00431DF1 /* img_abdomen */; };
+		83E6B9432085B59000431DF1 /* img_thyroid in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9412085B59000431DF1 /* img_thyroid */; };
+		83E6B9442085B59000431DF1 /* stream in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9422085B59000431DF1 /* stream */; };
+		83E6B9482085B83200431DF1 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9472085B83200431DF1 /* ScanViewController.m */; };
+		83E6B94D2085BABC00431DF1 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E6B94C2085BABC00431DF1 /* GLKit.framework */; };
+		83E6B9502085BAF500431DF1 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B94F2085BAF500431DF1 /* GLView.mm */; };
+		83E6B95A2085BE2E00431DF1 /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9522085BE2E00431DF1 /* esShapes.c */; };
+		83E6B95B2085BE2E00431DF1 /* esContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9542085BE2E00431DF1 /* esContext.cpp */; };
+		83E6B95C2085BE2E00431DF1 /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9552085BE2E00431DF1 /* esTransform.c */; };
+		83E6B95D2085BE2E00431DF1 /* esShader.c in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9562085BE2E00431DF1 /* esShader.c */; };
+		83E6B95E2085BE2E00431DF1 /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9592085BE2E00431DF1 /* esUtil.c */; };
+		83E6B9642085BEAF00431DF1 /* FileWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9632085BEAF00431DF1 /* FileWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +72,25 @@
 		8327A8B0208587990097FB97 /* ImageListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageListViewModel.m; sourceTree = "<group>"; };
 		8327A8B2208587C70097FB97 /* ImageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageItem.h; sourceTree = "<group>"; };
 		8327A8B3208587C70097FB97 /* ImageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
+		83E6B93F2085B53C00431DF1 /* img_abdomen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen; sourceTree = "<group>"; };
+		83E6B9412085B59000431DF1 /* img_thyroid */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid; sourceTree = "<group>"; };
+		83E6B9422085B59000431DF1 /* stream */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stream; sourceTree = "<group>"; };
+		83E6B9462085B83200431DF1 /* ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		83E6B9472085B83200431DF1 /* ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		83E6B94A2085BAB400431DF1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		83E6B94C2085BABC00431DF1 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		83E6B94E2085BAF500431DF1 /* GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		83E6B94F2085BAF500431DF1 /* GLView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+		83E6B9522085BE2E00431DF1 /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
+		83E6B9532085BE2E00431DF1 /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
+		83E6B9542085BE2E00431DF1 /* esContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = esContext.cpp; sourceTree = "<group>"; };
+		83E6B9552085BE2E00431DF1 /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
+		83E6B9562085BE2E00431DF1 /* esShader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShader.c; sourceTree = "<group>"; };
+		83E6B9572085BE2E00431DF1 /* esUtil_win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil_win.h; sourceTree = "<group>"; };
+		83E6B9582085BE2E00431DF1 /* esContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esContext.h; sourceTree = "<group>"; };
+		83E6B9592085BE2E00431DF1 /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
+		83E6B9622085BEAF00431DF1 /* FileWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWrapper.h; sourceTree = "<group>"; };
+		83E6B9632085BEAF00431DF1 /* FileWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E6B94D2085BABC00431DF1 /* GLKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +126,7 @@
 				8327A888208582500097FB97 /* TestBedTests */,
 				8327A893208582500097FB97 /* TestBedUITests */,
 				8327A86E208582500097FB97 /* Products */,
+				83E6B9492085BAB400431DF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +172,9 @@
 		8327A8A3208584F60097FB97 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				83E6B9512085BE0100431DF1 /* ES_Engine */,
+				83E6B9452085B81700431DF1 /* ScanView */,
+				83E6B93E2085AFA300431DF1 /* Common */,
 				8327A8A6208585730097FB97 /* ImageList */,
 				8327A8A5208585390097FB97 /* Home */,
 				8327A870208582500097FB97 /* AppDelegate.h */,
@@ -150,6 +186,7 @@
 		8327A8A42085850B0097FB97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				83E6B8402085AF8C00431DF1 /* SampleData */,
 				8327A876208582500097FB97 /* Main.storyboard */,
 				8327A879208582500097FB97 /* Assets.xcassets */,
 				8327A87B208582500097FB97 /* LaunchScreen.storyboard */,
@@ -177,6 +214,68 @@
 				8327A8B3208587C70097FB97 /* ImageItem.m */,
 			);
 			path = ImageList;
+			sourceTree = "<group>";
+		};
+		83E6B8402085AF8C00431DF1 /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				83E6B93F2085B53C00431DF1 /* img_abdomen */,
+				83E6B9412085B59000431DF1 /* img_thyroid */,
+				83E6B9422085B59000431DF1 /* stream */,
+			);
+			path = SampleData;
+			sourceTree = "<group>";
+		};
+		83E6B93E2085AFA300431DF1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		83E6B9452085B81700431DF1 /* ScanView */ = {
+			isa = PBXGroup;
+			children = (
+				83E6B9462085B83200431DF1 /* ScanViewController.h */,
+				83E6B9472085B83200431DF1 /* ScanViewController.m */,
+				83E6B94E2085BAF500431DF1 /* GLView.h */,
+				83E6B94F2085BAF500431DF1 /* GLView.mm */,
+			);
+			path = ScanView;
+			sourceTree = "<group>";
+		};
+		83E6B9492085BAB400431DF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83E6B94C2085BABC00431DF1 /* GLKit.framework */,
+				83E6B94A2085BAB400431DF1 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83E6B9512085BE0100431DF1 /* ES_Engine */ = {
+			isa = PBXGroup;
+			children = (
+				83E6B9612085BEAF00431DF1 /* iOS */,
+				83E6B9542085BE2E00431DF1 /* esContext.cpp */,
+				83E6B9582085BE2E00431DF1 /* esContext.h */,
+				83E6B9562085BE2E00431DF1 /* esShader.c */,
+				83E6B9522085BE2E00431DF1 /* esShapes.c */,
+				83E6B9552085BE2E00431DF1 /* esTransform.c */,
+				83E6B9572085BE2E00431DF1 /* esUtil_win.h */,
+				83E6B9592085BE2E00431DF1 /* esUtil.c */,
+				83E6B9532085BE2E00431DF1 /* esUtil.h */,
+			);
+			path = ES_Engine;
+			sourceTree = "<group>";
+		};
+		83E6B9612085BEAF00431DF1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				83E6B9622085BEAF00431DF1 /* FileWrapper.h */,
+				83E6B9632085BEAF00431DF1 /* FileWrapper.m */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +384,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E6B9442085B59000431DF1 /* stream in Resources */,
 				8327A87D208582500097FB97 /* LaunchScreen.storyboard in Resources */,
+				83E6B9402085B53D00431DF1 /* img_abdomen in Resources */,
+				83E6B9432085B59000431DF1 /* img_thyroid in Resources */,
 				8327A87A208582500097FB97 /* Assets.xcassets in Resources */,
 				8327A878208582500097FB97 /* Main.storyboard in Resources */,
 			);
@@ -313,9 +415,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8327A8B4208587C70097FB97 /* ImageItem.m in Sources */,
+				83E6B9642085BEAF00431DF1 /* FileWrapper.m in Sources */,
+				83E6B95B2085BE2E00431DF1 /* esContext.cpp in Sources */,
+				83E6B9502085BAF500431DF1 /* GLView.mm in Sources */,
+				83E6B95C2085BE2E00431DF1 /* esTransform.c in Sources */,
 				8327A875208582500097FB97 /* HomeViewController.m in Sources */,
 				8327A880208582500097FB97 /* main.m in Sources */,
+				83E6B95D2085BE2E00431DF1 /* esShader.c in Sources */,
 				8327A8AE2085878D0097FB97 /* ImageListViewController.m in Sources */,
+				83E6B95A2085BE2E00431DF1 /* esShapes.c in Sources */,
+				83E6B9482085B83200431DF1 /* ScanViewController.m in Sources */,
+				83E6B95E2085BE2E00431DF1 /* esUtil.c in Sources */,
 				8327A8B1208587990097FB97 /* ImageListViewModel.m in Sources */,
 				8327A872208582500097FB97 /* AppDelegate.m in Sources */,
 			);
@@ -420,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -469,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

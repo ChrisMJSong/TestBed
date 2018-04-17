@@ -16,9 +16,14 @@
 - (void)setup;
 
 /**
- 테스트 아이템을 셋업한다.
+ 더미 아이템을 셋업한다.
  */
-- (void)testItemSetup;
+- (void)dummyItemSetup;
+
+/**
+ 로컬에 저장된 아이템을 불러온다.
+ */
+- (void)loadItemsWithFileName:(NSString *)filename;
 
 // MARK: 아이템 콘트롤 관련 함수
 /**

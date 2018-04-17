@@ -10,4 +10,7 @@
 
 @implementation ImageItem
 
+- (NSArray *)imageFramePaths {
+    return [[NSBundle mainBundle] pathsForResourcesOfType:@"bs" inDirectory:self.fileName];
+}
 @end

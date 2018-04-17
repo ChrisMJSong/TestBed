@@ -10,7 +10,7 @@
 
 @interface ImageItem : NSObject
 
-@property (strong, nonatomic) NSString *fileName;
-@property (strong, nonatomic) NSString *filePath;
+@property (strong) NSString *fileName;
+@property (strong) NSString *filePath;
 
 @end

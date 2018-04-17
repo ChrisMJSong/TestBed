@@ -19,21 +19,32 @@
 - (void)setup {
     self.items = [[NSMutableArray alloc] init];
     
-    // MARK: 테스트 데이터
-    [self testItemSetup];
+    // MARK: 더미 데이터
+    [self dummyItemSetup];
 }
 
 /**
- 테스트 아이템을 셋업한다.
+ 더미 아이템을 셋업한다.
  */
-- (void)testItemSetup {
-    NSArray *fileNames = @[@"test01", @"test02"];
+- (void)dummyItemSetup {
+    NSArray *fileNames = @[@"img_abdomen", @"img_thyroid"];
     
     for (NSString *filename in fileNames) {
         ImageItem *item = [[ImageItem alloc] init];
         item.fileName = filename;
         [self addItem:item];
+        
+        [self loadItemsWithFileName:@"img_thyroid"];
     }
+
+}
+
+/**
+ 로컬에 저장된 아이템을 불러온다.
+ */
+- (void)loadItemsWithFileName:(NSString *)filename {
+
+    
 }
 
 // MARK: 아이템 콘트롤 관련 함수

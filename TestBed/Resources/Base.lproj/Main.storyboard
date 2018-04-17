@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Demo Stream"/>
                                 <connections>
-                                    <segue destination="jLI-8z-sfQ" kind="show" id="Ukg-Pp-iZX"/>
+                                    <segue destination="Y5I-uj-LQG" kind="presentation" identifier="SegueScan" id="aJX-aV-W1p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP7-nu-5Qe">
@@ -44,55 +45,88 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Delegate-->
         <scene sceneID="eUZ-dt-CPy">
             <objects>
-                <viewController id="jLI-8z-sfQ" sceneMemberID="viewController">
+                <viewController id="jLI-8z-sfQ" customClass="ScanViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5LS-Gx-klS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-FI-YWT" userLabel="ControlView">
-                                <rect key="frame" x="0.0" y="395" width="375" height="272"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgg-bn-2gB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZw-Vb-5do" userLabel="OpenGLView" customClass="GLKView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZw-Vb-5do" userLabel="OpenGLView" customClass="GLView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jLI-8z-sfQ" id="QCQ-FQ-FX7"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="9H0-JL-bQB"/>
-                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="centerX" secondItem="rgg-bn-2gB" secondAttribute="centerX" id="9gZ-6b-rKo"/>
-                                    <constraint firstAttribute="trailing" secondItem="XZw-Vb-5do" secondAttribute="trailing" id="cKX-sS-TU8"/>
-                                    <constraint firstAttribute="height" constant="375" id="cTV-Up-cgl"/>
-                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="centerY" secondItem="rgg-bn-2gB" secondAttribute="centerY" id="jNd-PC-bbc"/>
-                                    <constraint firstAttribute="bottom" secondItem="XZw-Vb-5do" secondAttribute="bottom" id="o3E-Zr-8X0"/>
-                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="leading" secondItem="rgg-bn-2gB" secondAttribute="leading" id="uXT-35-X1I"/>
-                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="top" secondItem="rgg-bn-2gB" secondAttribute="top" id="vWs-Qc-fLI"/>
+                                    <constraint firstAttribute="trailing" secondItem="XZw-Vb-5do" secondAttribute="trailing" id="1QA-NS-ujY"/>
+                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="leading" secondItem="rgg-bn-2gB" secondAttribute="leading" id="9VF-ec-py9"/>
+                                    <constraint firstAttribute="bottom" secondItem="XZw-Vb-5do" secondAttribute="bottom" constant="1" id="Frb-90-kfc"/>
+                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="centerY" secondItem="rgg-bn-2gB" secondAttribute="centerY" id="JUx-vx-eeg"/>
+                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="top" secondItem="rgg-bn-2gB" secondAttribute="top" id="fta-En-0uk"/>
+                                    <constraint firstAttribute="width" secondItem="rgg-bn-2gB" secondAttribute="height" multiplier="1:1" id="v35-yf-iYS"/>
+                                    <constraint firstItem="XZw-Vb-5do" firstAttribute="centerX" secondItem="rgg-bn-2gB" secondAttribute="centerX" id="vVS-bd-0a6"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="jLI-8z-sfQ" id="wno-Wg-cOr"/>
+                                </connections>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-FI-YWT" userLabel="ControlView">
+                                <rect key="frame" x="0.0" y="375" width="375" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MSd-EO-NA4" firstAttribute="trailing" secondItem="QHb-FI-YWT" secondAttribute="trailing" id="2T3-th-bwD"/>
-                            <constraint firstItem="QHb-FI-YWT" firstAttribute="leading" secondItem="MSd-EO-NA4" secondAttribute="leading" id="AG6-gf-Rmj"/>
-                            <constraint firstItem="MSd-EO-NA4" firstAttribute="bottom" secondItem="QHb-FI-YWT" secondAttribute="bottom" id="B0f-G1-o8c"/>
-                            <constraint firstItem="rgg-bn-2gB" firstAttribute="leading" secondItem="MSd-EO-NA4" secondAttribute="leading" id="P6l-7M-O4W"/>
-                            <constraint firstItem="rgg-bn-2gB" firstAttribute="top" secondItem="MSd-EO-NA4" secondAttribute="top" id="Yhb-0d-LnR"/>
-                            <constraint firstItem="QHb-FI-YWT" firstAttribute="top" secondItem="rgg-bn-2gB" secondAttribute="bottom" id="oJw-1o-4aJ"/>
-                            <constraint firstItem="MSd-EO-NA4" firstAttribute="trailing" secondItem="rgg-bn-2gB" secondAttribute="trailing" id="qNA-7o-lgq"/>
+                            <constraint firstItem="QHb-FI-YWT" firstAttribute="top" secondItem="rgg-bn-2gB" secondAttribute="bottom" id="8Sx-H2-3ae"/>
+                            <constraint firstAttribute="trailing" secondItem="rgg-bn-2gB" secondAttribute="trailing" id="Fjp-lx-zJ9"/>
+                            <constraint firstItem="QHb-FI-YWT" firstAttribute="leading" secondItem="MSd-EO-NA4" secondAttribute="leading" id="XOA-3c-pws"/>
+                            <constraint firstItem="rgg-bn-2gB" firstAttribute="leading" secondItem="5LS-Gx-klS" secondAttribute="leading" id="akd-FG-ekO"/>
+                            <constraint firstItem="QHb-FI-YWT" firstAttribute="trailing" secondItem="MSd-EO-NA4" secondAttribute="trailing" id="cga-Cu-aD8"/>
+                            <constraint firstItem="QHb-FI-YWT" firstAttribute="bottom" secondItem="MSd-EO-NA4" secondAttribute="bottom" id="fFu-yT-FvF"/>
+                            <constraint firstItem="rgg-bn-2gB" firstAttribute="top" secondItem="MSd-EO-NA4" secondAttribute="top" id="pLo-s6-rEq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MSd-EO-NA4"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="zrE-de-9S7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="hBX-L1-FMd">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="modalClose:" destination="jLI-8z-sfQ" id="dVu-IF-9g8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="glView" destination="XZw-Vb-5do" id="mJx-vB-Wj2"/>
+                        <outlet property="scrollView" destination="rgg-bn-2gB" id="nso-p0-AhD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUE-6M-Knu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2040.8" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F8K-lU-JaO">
+            <objects>
+                <navigationController id="Y5I-uj-LQG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BO2-f0-abg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jLI-8z-sfQ" kind="relationship" relationship="rootViewController" id="1xz-5K-QgH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQH-dn-g5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLL-tO-I1u">
@@ -171,7 +205,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="DNm-xi-abE" id="3sh-Hl-sYK"/>
-                        <segue destination="jLI-8z-sfQ" kind="show" id="0rD-ai-a7G"/>
+                        <segue destination="Y5I-uj-LQG" kind="presentation" identifier="SegueScan" id="0qQ-mE-HL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEo-aK-rXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,6 +214,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0rD-ai-a7G"/>
+        <segue reference="0qQ-mE-HL4"/>
     </inferredMetricsTieBreakers>
 </document>
