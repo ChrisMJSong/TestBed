@@ -1,0 +1,14 @@
+/**********
+/* Binary converter version 0.1
+/* 
+/* FileName:	Thyroid_2017_10_19_15_40_12
+/* Probe Type:	Convex
+/* Preset:	Thyroid
+/* Frame:	1 Frames
+/**********
+
+
+Frame:	Depth	Focal	TGC1	TGC2	TGC3	TGC4	DR
+0000:	4.0	1.0	47	48	48	48	66
+
+/* End of Data
