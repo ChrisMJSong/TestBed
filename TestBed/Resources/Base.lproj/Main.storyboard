@@ -77,6 +77,12 @@
                                     <outlet property="delegate" destination="jLI-8z-sfQ" id="wno-Wg-cOr"/>
                                 </connections>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-W2-Pbz" customClass="SideRulerView">
+                                <rect key="frame" x="315" y="0.0" width="60" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="RQw-o7-aXF"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-FI-YWT" userLabel="ControlView">
                                 <rect key="frame" x="0.0" y="375" width="375" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,7 +91,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QHb-FI-YWT" firstAttribute="top" secondItem="rgg-bn-2gB" secondAttribute="bottom" id="8Sx-H2-3ae"/>
+                            <constraint firstItem="Wgi-W2-Pbz" firstAttribute="trailing" secondItem="MSd-EO-NA4" secondAttribute="trailing" id="AZr-1b-yTm"/>
+                            <constraint firstItem="QHb-FI-YWT" firstAttribute="top" secondItem="Wgi-W2-Pbz" secondAttribute="bottom" id="Fdk-vd-Xeq"/>
                             <constraint firstAttribute="trailing" secondItem="rgg-bn-2gB" secondAttribute="trailing" id="Fjp-lx-zJ9"/>
+                            <constraint firstItem="Wgi-W2-Pbz" firstAttribute="top" secondItem="MSd-EO-NA4" secondAttribute="top" id="KlH-Gy-BNT"/>
                             <constraint firstItem="QHb-FI-YWT" firstAttribute="leading" secondItem="MSd-EO-NA4" secondAttribute="leading" id="XOA-3c-pws"/>
                             <constraint firstItem="rgg-bn-2gB" firstAttribute="leading" secondItem="5LS-Gx-klS" secondAttribute="leading" id="akd-FG-ekO"/>
                             <constraint firstItem="QHb-FI-YWT" firstAttribute="trailing" secondItem="MSd-EO-NA4" secondAttribute="trailing" id="cga-Cu-aD8"/>
@@ -106,11 +115,12 @@
                     <connections>
                         <outlet property="glView" destination="XZw-Vb-5do" id="mJx-vB-Wj2"/>
                         <outlet property="scrollView" destination="rgg-bn-2gB" id="nso-p0-AhD"/>
+                        <outlet property="sideRulerView" destination="Wgi-W2-Pbz" id="r0h-J7-rbw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUE-6M-Knu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2040.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2040.5" y="133.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8K-lU-JaO">

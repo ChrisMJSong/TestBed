@@ -8,9 +8,11 @@
 
 #import "ScanViewController.h"
 #import "GLView.h"
+#import "SideRulerView.h"
 
 @interface ScanViewController ()
 @property (weak, nonatomic) IBOutlet GLView *glView;
+@property (weak, nonatomic) IBOutlet SideRulerView *sideRulerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
@@ -23,7 +25,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.glView setup];
+    [self setup];
 }
 
 - (void)dealloc {
@@ -33,6 +35,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/**
+ 뷰가 로드 된 이후 설정
+ */
+- (void)setup {
+    // opengl 설정
+    [self.glView setup];
+    
+    [self.sideRulerView setup];
+    [self.sideRulerView changeDepth:4];
 }
 
 /*
