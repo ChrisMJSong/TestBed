@@ -28,6 +28,7 @@
 @property float depth;
 @property float scale;
 @property CGSize originalSize;
+@property float contentOffsetY;
 @end
 
 @implementation SideRulerView
@@ -42,7 +43,7 @@
     CGContextSetLineWidth(context, LINE_WIDTH);
     
     float length = RULLER_LENGTH;
-    float topMargin = (self.originalSize.height - length) / 2;
+    float topMargin = ((self.originalSize.height - length) / 2) - self.contentOffsetY / self.scale;
     float totalHeight = length*self.scale;
     float offsetY = totalHeight / self.depth;
     
@@ -103,10 +104,19 @@
 
 - (void)changeDepth:(float)depth {
     self.depth = depth;
+    [self setNeedsDisplay];
 }
 
 - (void)changeScale:(float)scale {
     self.scale = scale;
+    [self setNeedsDisplay];
+}
+
+- (void)changeContentOffset:(CGPoint)contentOffset {
+    // y값만 필요함.
+    self.contentOffsetY = contentOffset.y;
+    
+    [self setNeedsDisplay];
 }
 
 @end

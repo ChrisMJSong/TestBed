@@ -12,4 +12,5 @@
 - (void)setup;
 - (void)changeDepth:(float)depth;
 - (void)changeScale:(float)scale;
+- (void)changeContentOffset:(CGPoint)contentOffset;
 @end

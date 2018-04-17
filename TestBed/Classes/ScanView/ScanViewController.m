@@ -10,7 +10,7 @@
 #import "GLView.h"
 #import "SideRulerView.h"
 
-@interface ScanViewController ()
+@interface ScanViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet GLView *glView;
 @property (weak, nonatomic) IBOutlet SideRulerView *sideRulerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -60,5 +60,19 @@
 
 - (IBAction)modalClose:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.glView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [self.sideRulerView changeScale:scrollView.zoomScale];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.sideRulerView changeContentOffset:scrollView.contentOffset];
 }
 @end
