@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-815" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Image List View Controller-->
         <scene sceneID="PfK-r4-sEy">
             <objects>
-                <viewController id="2Dx-fN-H6h" sceneMemberID="viewController">
+                <viewController id="2Dx-fN-H6h" customClass="ImageListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="suQ-bd-hjR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vMQ-oC-I3N">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="vMQ-oC-I3N" customClass="ImageCell">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -154,6 +154,10 @@
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Dx-fN-H6h" id="aNX-ZC-xlB"/>
+                                    <outlet property="delegate" destination="2Dx-fN-H6h" id="C2p-a3-MPO"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,6 +170,7 @@
                         <viewLayoutGuide key="safeArea" id="qhD-hq-9m3"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="DNm-xi-abE" id="3sh-Hl-sYK"/>
                         <segue destination="jLI-8z-sfQ" kind="show" id="0rD-ai-a7G"/>
                     </connections>
                 </viewController>
@@ -175,6 +180,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ukg-Pp-iZX"/>
+        <segue reference="0rD-ai-a7G"/>
     </inferredMetricsTieBreakers>
 </document>

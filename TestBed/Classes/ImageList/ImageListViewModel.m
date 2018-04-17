@@ -13,6 +13,29 @@
 @end
 
 @implementation ImageListViewModel
+/**
+ 이미지 리스트 뷰 설정을 한다.
+ */
+- (void)setup {
+    _items = [[NSMutableArray alloc] init];
+    
+    // MARK: 테스트 데이터
+    [self testItemSetup];
+}
+
+/**
+ 테스트 아이템을 셋업한다.
+ */
+- (void)testItemSetup {
+    NSArray *fileNames = @[@"test01", @"test02"];
+    
+    for (NSString *filename in fileNames) {
+        ImageItem *item = [[ImageItem alloc] init];
+        item.fileName = filename;
+        [self addItem:item];
+    }
+}
+
 // MARK: 아이템 콘트롤 관련 함수
 /**
  인덱스에 해당하는 아이템을 가져온다.

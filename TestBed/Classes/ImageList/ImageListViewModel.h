@@ -10,6 +10,16 @@
 #import "ImageItem.h"
 
 @interface ImageListViewModel : NSObject
+/**
+ 이미지 리스트 뷰 설정을 한다.
+ */
+- (void)setup;
+
+/**
+ 테스트 아이템을 셋업한다.
+ */
+- (void)testItemSetup;
+
 // MARK: 아이템 콘트롤 관련 함수
 /**
  인덱스에 해당하는 아이템을 가져온다.
