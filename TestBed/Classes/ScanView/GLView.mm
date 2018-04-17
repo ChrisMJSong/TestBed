@@ -38,9 +38,26 @@
     self.renderingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/FPS target:self selector:@selector(rendering) userInfo:nil repeats:true];
 }
 
+/**
+ 스캔 데이터를 업데이트한다.
+ 
+ @param data 로우 포맷 데이터
+ @param size 로우 포맷 이미지 사이즈
+ */
+- (void)updateScanData:(NSData *)data withSize:(CGSize)size {
+    _esContext->updateTexture((unsigned char *)data.bytes, size.width, size.height);
+}
+
+/**
+ 메모리를 강제로 해제한다.
+ */
 - (void)readyToRelease {
     [self.renderingTimer invalidate];
     self.renderingTimer = nil;
+    self.lastUpdate = nil;
+    self.esContext->~ESContext();
+    free(self.esContext);
+    self.esContext = nil;
 }
 
 - (void)initESContextWithGLESVersion:(EAGLRenderingAPI)api {

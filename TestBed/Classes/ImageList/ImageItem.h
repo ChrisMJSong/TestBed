@@ -13,4 +13,9 @@
 @property (strong) NSString *fileName;
 @property (strong) NSString *filePath;
 
++ (ImageItem *)streamingItem;
+
+- (void)loadFrameDatas;
+- (void)unloadFrameDatas;
+- (NSData *)frameDataAtIndex:(NSInteger)index;
 @end

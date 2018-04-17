@@ -19,6 +19,7 @@
 		8327A8B1208587990097FB97 /* ImageListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8B0208587990097FB97 /* ImageListViewModel.m */; };
 		8327A8B4208587C70097FB97 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8B3208587C70097FB97 /* ImageItem.m */; };
 		8378F589208602200011DF95 /* SideRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F588208602200011DF95 /* SideRulerView.m */; };
+		8378F58F208612F00011DF95 /* ScanViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F58E208612F00011DF95 /* ScanViewModel.m */; };
 		83E6B9402085B53D00431DF1 /* img_abdomen in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B93F2085B53C00431DF1 /* img_abdomen */; };
 		83E6B9432085B59000431DF1 /* img_thyroid in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9412085B59000431DF1 /* img_thyroid */; };
 		83E6B9442085B59000431DF1 /* stream in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9422085B59000431DF1 /* stream */; };
@@ -75,6 +76,8 @@
 		8327A8B3208587C70097FB97 /* ImageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageItem.m; sourceTree = "<group>"; };
 		8378F587208602200011DF95 /* SideRulerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideRulerView.h; sourceTree = "<group>"; };
 		8378F588208602200011DF95 /* SideRulerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideRulerView.m; sourceTree = "<group>"; };
+		8378F58D208612F00011DF95 /* ScanViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewModel.h; sourceTree = "<group>"; };
+		8378F58E208612F00011DF95 /* ScanViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewModel.m; sourceTree = "<group>"; };
 		83E6B93F2085B53C00431DF1 /* img_abdomen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen; sourceTree = "<group>"; };
 		83E6B9412085B59000431DF1 /* img_thyroid */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid; sourceTree = "<group>"; };
 		83E6B9422085B59000431DF1 /* stream */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stream; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 			children = (
 				83E6B9462085B83200431DF1 /* ScanViewController.h */,
 				83E6B9472085B83200431DF1 /* ScanViewController.m */,
+				8378F58D208612F00011DF95 /* ScanViewModel.h */,
+				8378F58E208612F00011DF95 /* ScanViewModel.m */,
 				83E6B94E2085BAF500431DF1 /* GLView.h */,
 				83E6B94F2085BAF500431DF1 /* GLView.mm */,
 				8378F587208602200011DF95 /* SideRulerView.h */,
@@ -430,6 +435,7 @@
 				8327A8AE2085878D0097FB97 /* ImageListViewController.m in Sources */,
 				83E6B95A2085BE2E00431DF1 /* esShapes.c in Sources */,
 				83E6B9482085B83200431DF1 /* ScanViewController.m in Sources */,
+				8378F58F208612F00011DF95 /* ScanViewModel.m in Sources */,
 				83E6B95E2085BE2E00431DF1 /* esUtil.c in Sources */,
 				8378F589208602200011DF95 /* SideRulerView.m in Sources */,
 				8327A8B1208587990097FB97 /* ImageListViewModel.m in Sources */,

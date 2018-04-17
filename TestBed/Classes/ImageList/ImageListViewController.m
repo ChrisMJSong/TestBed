@@ -8,6 +8,7 @@
 
 #import "ImageListViewController.h"
 #import "ImageListViewModel.h"
+#import "ScanViewController.h"
 
 @interface ImageListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -34,6 +35,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SegueScan"]) {
+        UINavigationController *navi = segue.destinationViewController;
+        ScanViewController *viewController = navi.viewControllers.lastObject;
+        
+        viewController.viewMode = ScanViewModeStream;
+    }
 }
 
 /**

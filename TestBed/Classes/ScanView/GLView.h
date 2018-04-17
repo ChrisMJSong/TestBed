@@ -20,5 +20,15 @@
  */
 - (void)showErrorMessage:(NSString *)message;
 
+/**
+ 스캔 데이터를 업데이트한다.
+
+ @param data 로우 포맷 데이터
+ */
+- (void)updateScanData:(NSData *)data withSize:(CGSize)size;
+
+/**
+ 메모리를 강제로 해제한다.
+ */
 - (void)readyToRelease;
 @end
