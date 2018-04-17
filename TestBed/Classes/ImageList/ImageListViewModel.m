@@ -17,7 +17,7 @@
  이미지 리스트 뷰 설정을 한다.
  */
 - (void)setup {
-    _items = [[NSMutableArray alloc] init];
+    self.items = [[NSMutableArray alloc] init];
     
     // MARK: 테스트 데이터
     [self testItemSetup];
@@ -94,4 +94,22 @@
     return [_items indexOfObject:item];
 }
 
+
+#pragma - UICollectionViewDelegate Function
+/**
+ 섹션의 개수를 반환한다.
+ 
+ @return 섹션 개수
+ */
+- (NSInteger)numberOfSection {
+    return 1;
+}
+/**
+ 섹션의 아이템 개수를 반환한다.
+ 
+ @return 아이템 개수
+ */
+- (NSInteger)numberOfItemsInSection {
+    return _items.count;
+}
 @end

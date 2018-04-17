@@ -57,11 +57,11 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return _viewModel.numberOfSection;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return _viewModel.numberOfItemsInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

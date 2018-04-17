@@ -66,4 +66,19 @@
  */
 - (NSInteger)indexOf:(ImageItem *)item;
 
+
+#pragma - UICollectionViewDelegate Function
+/**
+ 섹션의 개수를 반환한다.
+
+ @return 섹션 개수
+ */
+- (NSInteger)numberOfSection;
+/**
+ 섹션의 아이템 개수를 반환한다.
+
+ @return 아이템 개수
+ */
+- (NSInteger)numberOfItemsInSection;
+
 @end
