@@ -1,0 +1,14 @@
+/**********
+/* Binary converter version 0.1
+/* 
+/* FileName:	Carotid_2018_01_02_13_12_44
+/* Probe Type:	Linear
+/* Preset:	Carotid
+/* Frame:	1
+/**********
+
+
+Frame:	Depth	Focal	TGC1	TGC2	TGC3	TGC4	DR
+0000:	4.0	2.0	42	42	42	45	78
+
+/* End of Data

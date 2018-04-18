@@ -1,0 +1,14 @@
+/**********
+/* Binary converter version 0.1
+/* 
+/* FileName:	Abdomen_2017_02_20_14_31_56
+/* Probe Type:	Convex
+/* Preset:	Abdomen
+/* Frame:	1
+/**********
+
+
+Frame:	Depth	Focal	TGC1	TGC2	TGC3	TGC4	DR
+0000:	20.0	8.0	52	56	56	58	66
+
+/* End of Data

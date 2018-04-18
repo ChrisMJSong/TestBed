@@ -1,0 +1,14 @@
+/**********
+/* Binary converter version 0.1
+/* 
+/* FileName:	MSK_2017_03_06_12_41_35
+/* Probe Type:	Linear
+/* Preset:	MSK
+/* Frame:	1
+/**********
+
+
+Frame:	Depth	Focal	TGC1	TGC2	TGC3	TGC4	DR
+0000:	5.0	2.0	48	48	48	48	72
+
+/* End of Data

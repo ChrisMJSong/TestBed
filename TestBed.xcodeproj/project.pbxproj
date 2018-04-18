@@ -21,9 +21,17 @@
 		8378F589208602200011DF95 /* SideRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F588208602200011DF95 /* SideRulerView.m */; };
 		8378F58F208612F00011DF95 /* ScanViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F58E208612F00011DF95 /* ScanViewModel.m */; };
 		8378F59D20874F810011DF95 /* ImageListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F59C20874F810011DF95 /* ImageListCollectionViewCell.m */; };
-		83E6B9402085B53D00431DF1 /* img_abdomen in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B93F2085B53C00431DF1 /* img_abdomen */; };
-		83E6B9432085B59000431DF1 /* img_thyroid in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9412085B59000431DF1 /* img_thyroid */; };
-		83E6B9442085B59000431DF1 /* stream in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9422085B59000431DF1 /* stream */; };
+		837BBD162087686F00C69FD4 /* img_carotid01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD0B2087686D00C69FD4 /* img_carotid01 */; };
+		837BBD172087686F00C69FD4 /* img_msk01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD0C2087686D00C69FD4 /* img_msk01 */; };
+		837BBD182087686F00C69FD4 /* img_abdomen03 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD0D2087686D00C69FD4 /* img_abdomen03 */; };
+		837BBD192087686F00C69FD4 /* mov_baby01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD0E2087686D00C69FD4 /* mov_baby01 */; };
+		837BBD1A2087686F00C69FD4 /* img_thyroid01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD0F2087686D00C69FD4 /* img_thyroid01 */; };
+		837BBD1B2087686F00C69FD4 /* mov_baby02 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD102087686E00C69FD4 /* mov_baby02 */; };
+		837BBD1C2087686F00C69FD4 /* mov_baby03 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD112087686E00C69FD4 /* mov_baby03 */; };
+		837BBD1D2087686F00C69FD4 /* img_abdomen01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD122087686E00C69FD4 /* img_abdomen01 */; };
+		837BBD1E2087686F00C69FD4 /* img_abdomen02 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD132087686E00C69FD4 /* img_abdomen02 */; };
+		837BBD1F2087686F00C69FD4 /* img_abdomen04 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD142087686E00C69FD4 /* img_abdomen04 */; };
+		837BBD202087686F00C69FD4 /* img_breast01 in Resources */ = {isa = PBXBuildFile; fileRef = 837BBD152087686E00C69FD4 /* img_breast01 */; };
 		83E6B9482085B83200431DF1 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B9472085B83200431DF1 /* ScanViewController.m */; };
 		83E6B94D2085BABC00431DF1 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E6B94C2085BABC00431DF1 /* GLKit.framework */; };
 		83E6B9502085BAF500431DF1 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E6B94F2085BAF500431DF1 /* GLView.mm */; };
@@ -82,9 +90,17 @@
 		8378F59720871CFF0011DF95 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		8378F59B20874F810011DF95 /* ImageListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageListCollectionViewCell.h; sourceTree = "<group>"; };
 		8378F59C20874F810011DF95 /* ImageListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageListCollectionViewCell.m; sourceTree = "<group>"; };
-		83E6B93F2085B53C00431DF1 /* img_abdomen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen; sourceTree = "<group>"; };
-		83E6B9412085B59000431DF1 /* img_thyroid */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid; sourceTree = "<group>"; };
-		83E6B9422085B59000431DF1 /* stream */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stream; sourceTree = "<group>"; };
+		837BBD0B2087686D00C69FD4 /* img_carotid01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_carotid01; sourceTree = "<group>"; };
+		837BBD0C2087686D00C69FD4 /* img_msk01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_msk01; sourceTree = "<group>"; };
+		837BBD0D2087686D00C69FD4 /* img_abdomen03 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen03; sourceTree = "<group>"; };
+		837BBD0E2087686D00C69FD4 /* mov_baby01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mov_baby01; sourceTree = "<group>"; };
+		837BBD0F2087686D00C69FD4 /* img_thyroid01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid01; sourceTree = "<group>"; };
+		837BBD102087686E00C69FD4 /* mov_baby02 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mov_baby02; sourceTree = "<group>"; };
+		837BBD112087686E00C69FD4 /* mov_baby03 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mov_baby03; sourceTree = "<group>"; };
+		837BBD122087686E00C69FD4 /* img_abdomen01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen01; sourceTree = "<group>"; };
+		837BBD132087686E00C69FD4 /* img_abdomen02 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen02; sourceTree = "<group>"; };
+		837BBD142087686E00C69FD4 /* img_abdomen04 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen04; sourceTree = "<group>"; };
+		837BBD152087686E00C69FD4 /* img_breast01 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_breast01; sourceTree = "<group>"; };
 		83E6B9462085B83200431DF1 /* ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		83E6B9472085B83200431DF1 /* ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		83E6B94A2085BAB400431DF1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -231,9 +247,17 @@
 		83E6B8402085AF8C00431DF1 /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
-				83E6B93F2085B53C00431DF1 /* img_abdomen */,
-				83E6B9412085B59000431DF1 /* img_thyroid */,
-				83E6B9422085B59000431DF1 /* stream */,
+				837BBD122087686E00C69FD4 /* img_abdomen01 */,
+				837BBD132087686E00C69FD4 /* img_abdomen02 */,
+				837BBD0D2087686D00C69FD4 /* img_abdomen03 */,
+				837BBD142087686E00C69FD4 /* img_abdomen04 */,
+				837BBD152087686E00C69FD4 /* img_breast01 */,
+				837BBD0B2087686D00C69FD4 /* img_carotid01 */,
+				837BBD0C2087686D00C69FD4 /* img_msk01 */,
+				837BBD0F2087686D00C69FD4 /* img_thyroid01 */,
+				837BBD0E2087686D00C69FD4 /* mov_baby01 */,
+				837BBD102087686E00C69FD4 /* mov_baby02 */,
+				837BBD112087686E00C69FD4 /* mov_baby03 */,
 			);
 			path = SampleData;
 			sourceTree = "<group>";
@@ -401,10 +425,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E6B9442085B59000431DF1 /* stream in Resources */,
+				837BBD202087686F00C69FD4 /* img_breast01 in Resources */,
+				837BBD172087686F00C69FD4 /* img_msk01 in Resources */,
+				837BBD162087686F00C69FD4 /* img_carotid01 in Resources */,
+				837BBD182087686F00C69FD4 /* img_abdomen03 in Resources */,
+				837BBD1B2087686F00C69FD4 /* mov_baby02 in Resources */,
+				837BBD1F2087686F00C69FD4 /* img_abdomen04 in Resources */,
+				837BBD1D2087686F00C69FD4 /* img_abdomen01 in Resources */,
+				837BBD1E2087686F00C69FD4 /* img_abdomen02 in Resources */,
+				837BBD192087686F00C69FD4 /* mov_baby01 in Resources */,
 				8327A87D208582500097FB97 /* LaunchScreen.storyboard in Resources */,
-				83E6B9402085B53D00431DF1 /* img_abdomen in Resources */,
-				83E6B9432085B59000431DF1 /* img_thyroid in Resources */,
+				837BBD1C2087686F00C69FD4 /* mov_baby03 in Resources */,
+				837BBD1A2087686F00C69FD4 /* img_thyroid01 in Resources */,
 				8327A87A208582500097FB97 /* Assets.xcassets in Resources */,
 				8327A878208582500097FB97 /* Main.storyboard in Resources */,
 			);
