@@ -9,6 +9,7 @@
 #import "ImageListViewController.h"
 #import "ImageListViewModel.h"
 #import "ScanViewController.h"
+#import "ImageListCollectionViewCell.h"
 
 @interface ImageListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -67,11 +68,11 @@
     switch (deviceOrient) {
         case UIInterfaceOrientationPortrait:
         case UIInterfaceOrientationPortraitUpsideDown:
-            itemPerRow = 4;
+            itemPerRow = 2;
             break;
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
-            itemPerRow = 5;
+            itemPerRow = 3;
             break;
             
         default:
@@ -104,8 +105,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"ImageCell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    ImageListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    ImageItem *item = [self.viewModel itemAt:indexPath.row];
+    [cell updateItem:item];
     return cell;
 }
 

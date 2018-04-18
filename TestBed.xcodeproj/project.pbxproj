@@ -20,6 +20,7 @@
 		8327A8B4208587C70097FB97 /* ImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327A8B3208587C70097FB97 /* ImageItem.m */; };
 		8378F589208602200011DF95 /* SideRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F588208602200011DF95 /* SideRulerView.m */; };
 		8378F58F208612F00011DF95 /* ScanViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F58E208612F00011DF95 /* ScanViewModel.m */; };
+		8378F59D20874F810011DF95 /* ImageListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8378F59C20874F810011DF95 /* ImageListCollectionViewCell.m */; };
 		83E6B9402085B53D00431DF1 /* img_abdomen in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B93F2085B53C00431DF1 /* img_abdomen */; };
 		83E6B9432085B59000431DF1 /* img_thyroid in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9412085B59000431DF1 /* img_thyroid */; };
 		83E6B9442085B59000431DF1 /* stream in Resources */ = {isa = PBXBuildFile; fileRef = 83E6B9422085B59000431DF1 /* stream */; };
@@ -79,6 +80,8 @@
 		8378F58D208612F00011DF95 /* ScanViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewModel.h; sourceTree = "<group>"; };
 		8378F58E208612F00011DF95 /* ScanViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewModel.m; sourceTree = "<group>"; };
 		8378F59720871CFF0011DF95 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		8378F59B20874F810011DF95 /* ImageListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageListCollectionViewCell.h; sourceTree = "<group>"; };
+		8378F59C20874F810011DF95 /* ImageListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageListCollectionViewCell.m; sourceTree = "<group>"; };
 		83E6B93F2085B53C00431DF1 /* img_abdomen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen; sourceTree = "<group>"; };
 		83E6B9412085B59000431DF1 /* img_thyroid */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid; sourceTree = "<group>"; };
 		83E6B9422085B59000431DF1 /* stream */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stream; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				8327A8AD2085878D0097FB97 /* ImageListViewController.m */,
 				8327A8AF208587990097FB97 /* ImageListViewModel.h */,
 				8327A8B0208587990097FB97 /* ImageListViewModel.m */,
+				8378F59B20874F810011DF95 /* ImageListCollectionViewCell.h */,
+				8378F59C20874F810011DF95 /* ImageListCollectionViewCell.m */,
 				8327A8B2208587C70097FB97 /* ImageItem.h */,
 				8327A8B3208587C70097FB97 /* ImageItem.m */,
 			);
@@ -431,6 +436,7 @@
 				83E6B95B2085BE2E00431DF1 /* esContext.cpp in Sources */,
 				83E6B9502085BAF500431DF1 /* GLView.mm in Sources */,
 				83E6B95C2085BE2E00431DF1 /* esTransform.c in Sources */,
+				8378F59D20874F810011DF95 /* ImageListCollectionViewCell.m in Sources */,
 				8327A875208582500097FB97 /* HomeViewController.m in Sources */,
 				8327A880208582500097FB97 /* main.m in Sources */,
 				83E6B95D2085BE2E00431DF1 /* esShader.c in Sources */,

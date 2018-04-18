@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CommonHeader.h"
 
 @interface ImageItem : NSObject
@@ -20,6 +21,7 @@
 - (void)loadFrameDatas;
 - (void)unloadFrameDatas;
 - (ProbeHead)probeInfo;
+- (UIImage *)thumbnailImage;
 - (NSNumber *)frameInfoAtIndex:(NSInteger)index;
 - (NSData *)frameDataAtIndex:(NSInteger)index;
 @end

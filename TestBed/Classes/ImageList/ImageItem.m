@@ -30,6 +30,14 @@
     return [[NSBundle mainBundle] pathsForResourcesOfType:@"bs" inDirectory:self.fileName];
 }
 
+- (NSData *)dataForResourcesOfType:(NSString *)extionsionName {
+    NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:extionsionName inDirectory:self.fileName];
+    NSString *pathString = paths.lastObject;
+    NSURL *path = [NSURL fileURLWithPath:pathString];
+    
+    return [NSData dataWithContentsOfURL:path];
+}
+
 - (void)loadFrameDatas{
     NSArray *pathes = [self imageFramePaths];
     if (!self.frameDatas) {
@@ -49,10 +57,7 @@
     if (!self.frameInfos) {
         self.frameInfos = [[NSMutableArray alloc] init];
     }
-    NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"txt" inDirectory:self.fileName];
-    NSString *pathString = paths.lastObject;
-    NSURL *path = [NSURL fileURLWithPath:pathString];
-    NSData *stringData = [NSData dataWithContentsOfURL:path];
+    NSData *stringData = [self dataForResourcesOfType:@"txt"];
     NSString *infoText = [[NSString alloc] initWithData:stringData encoding:NSUTF8StringEncoding];
     
     // NOTE: 테스트용이기 때문에 데이터 위치값을 고정함.
@@ -84,10 +89,7 @@
     if (!self.probeHead.headType) {
         ProbeHead newProbe;
         
-        NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"txt" inDirectory:self.fileName];
-        NSString *pathString = paths.lastObject;
-        NSURL *path = [NSURL fileURLWithPath:pathString];
-        NSData *stringData = [NSData dataWithContentsOfURL:path];
+        NSData *stringData = [self dataForResourcesOfType:@"txt"];
         NSString *infoText = [[NSString alloc] initWithData:stringData encoding:NSUTF8StringEncoding];
         
         // NOTE: 테스트용이기 때문에 데이터 위치값을 고정함.
@@ -108,6 +110,12 @@
         self.probeHead = newProbe;
     }
     return self.probeHead;
+}
+
+- (UIImage *)thumbnailImage {
+    NSData *imageData = [self dataForResourcesOfType:@"jpg"];
+    
+    return [UIImage imageWithData:imageData];
 }
 
 - (NSNumber *)frameInfoAtIndex:(NSInteger)index{

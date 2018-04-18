@@ -33,18 +33,8 @@
         ImageItem *item = [[ImageItem alloc] init];
         item.fileName = filename;
         [self addItem:item];
-        
-        [self loadItemsWithFileName:@"img_thyroid"];
     }
 
-}
-
-/**
- 로컬에 저장된 아이템을 불러온다.
- */
-- (void)loadItemsWithFileName:(NSString *)filename {
-
-    
 }
 
 // MARK: 아이템 콘트롤 관련 함수

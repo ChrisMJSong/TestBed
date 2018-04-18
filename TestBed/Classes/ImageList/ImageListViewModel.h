@@ -20,11 +20,6 @@
  */
 - (void)dummyItemSetup;
 
-/**
- 로컬에 저장된 아이템을 불러온다.
- */
-- (void)loadItemsWithFileName:(NSString *)filename;
-
 // MARK: 아이템 콘트롤 관련 함수
 /**
  인덱스에 해당하는 아이템을 가져온다.
