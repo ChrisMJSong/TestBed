@@ -33,7 +33,15 @@
 - (NSData *)dataForResourcesOfType:(NSString *)extionsionName {
     NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:extionsionName inDirectory:self.fileName];
     NSString *pathString = paths.lastObject;
+    if (!pathString) {
+        return nil;
+    }
     NSURL *path = [NSURL fileURLWithPath:pathString];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:pathString]) {
+        // 파일을 찾을 수 없다면 널을 리턴함.
+        return nil;
+    }
     
     return [NSData dataWithContentsOfURL:path];
 }

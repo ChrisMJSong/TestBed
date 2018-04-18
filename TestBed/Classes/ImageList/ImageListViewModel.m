@@ -27,7 +27,7 @@
  더미 아이템을 셋업한다.
  */
 - (void)dummyItemSetup {
-    NSArray *fileNames = @[@"img_abdomen", @"img_thyroid"];
+    NSArray *fileNames = @[@"img_abdomen01", @"img_abdomen02", @"img_abdomen03", @"img_abdomen04", @"img_thyroid01", @"img_breast01", @"img_carotid01", @"img_msk01", @"mov_baby01", @"mov_baby02", @"mov_baby03"];
     
     for (NSString *filename in fileNames) {
         ImageItem *item = [[ImageItem alloc] init];
