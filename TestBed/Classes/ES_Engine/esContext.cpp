@@ -441,19 +441,19 @@ bool ESContext::updateTexture(GLubyte *buffer, int width, int height){
     return texId != 0;
 }
 
-void ESContext::createVeritices(GLfloat **buffer, GLProbeHead head, GLuint depth){
+void ESContext::createVeritices(GLfloat **buffer, ProbeHead head, GLuint depth){
     // Set Veritices
     if (*buffer == NULL) {
         *buffer = (GLfloat *)malloc(sizeof(GLfloat) * kTotalVertexCount*5);
     }
     
     switch (head.headType) {
-        case CProbeHeadTypeLinear:
+        case ProbeHeadTypeLinear:
             createVeriticesRect(buffer, head, depth);
             break;
-        case CProbeHeadTypeConvex:
-        case CProbeHeadTypeMicroConvex:
-        case CProbeHeadTypePhasedArray:
+        case ProbeHeadTypeConvex:
+        case ProbeHeadTypeMicroConvex:
+        case ProbeHeadTypePhasedArray:
             createVeriticesArc(buffer, head, depth);
             break;
         default:
@@ -461,7 +461,7 @@ void ESContext::createVeritices(GLfloat **buffer, GLProbeHead head, GLuint depth
     }
 }
 
-void ESContext::createVeriticesArc(GLfloat **buffer, GLProbeHead head, GLuint depth){
+void ESContext::createVeriticesArc(GLfloat **buffer, ProbeHead head, GLuint depth){
     GLfloat *buf = *buffer;
     GLuint totalVertexCount = kTotalVertexCount;
     
@@ -557,7 +557,7 @@ void ESContext::createVeriticesArc(GLfloat **buffer, GLProbeHead head, GLuint de
     }
 }
 
-void ESContext::createVeriticesRect(GLfloat **buffer, GLProbeHead head, GLuint depth){
+void ESContext::createVeriticesRect(GLfloat **buffer, ProbeHead head, GLuint depth){
     
     GLfloat *buf = *buffer;
     GLuint totalVertexCount = kTotalVertexCount;

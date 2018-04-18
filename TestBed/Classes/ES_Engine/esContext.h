@@ -16,27 +16,12 @@
 #include <math.h>
 #ifdef __APPLE__
 #include <OpenGLES/ES3/gl.h>
+#include "CommonHeader.h"
 #else
 #include <GLES3/gl3.h>
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #endif
-
-typedef enum {
-    CProbeHeadTypeUnknown = -1,
-    CProbeHeadTypeConvex = 0,
-    CProbeHeadTypeLinear,
-    CProbeHeadTypeMicroConvex,
-    CProbeHeadTypePhasedArray,
-    CProbeHeadTypeMax
-}CProbeHeadType;
-
-typedef struct{
-    CProbeHeadType headType;
-    float radius;           // base on Cm
-    float footPrint;        // base on Cm
-    float fieldOfView;      // base on Degree
-}GLProbeHead;
 
 typedef struct {
     int width = 320, height = 320;
@@ -57,16 +42,17 @@ class ESContext {
     float _offsetY;
     
     bool createWindow(const char *title, GLint width, GLint height, GLint flags);
-    void createVeritices(GLfloat **buffer, GLProbeHead head, GLuint depth);
-    void createVeriticesArc(GLfloat **buffer, GLProbeHead head, GLuint depth);
-    void createVeriticesRect(GLfloat **buffer, GLProbeHead head, GLuint depth);
+    void createVeritices(GLfloat **buffer, ProbeHead head, GLuint depth);
+    void createVeriticesArc(GLfloat **buffer, ProbeHead head, GLuint depth);
+    void createVeriticesRect(GLfloat **buffer, ProbeHead head, GLuint depth);
     
     void init();
     GLuint loadTexture(GLubyte *buf, int width, int height);
     GLuint loadRGBTexture(GLubyte *buf, int width, int height);
+    
 public:
     // PWOption
-    GLProbeHead _probeHead;
+    ProbeHead _probeHead;
     GLuint _depth;
     GLubyte *_tBuf;
     
@@ -74,6 +60,7 @@ public:
     virtual ~ESContext();
     void initWithViewsize(int width, int height);
     void draw();
+    void drawUSImage();
     void update(GLfloat timeDelta);
     bool updateTexture(GLubyte *buffer, int width, int height);
     int esVersion;
