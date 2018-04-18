@@ -62,17 +62,41 @@
  @return 아이템 갯수
  */
 - (float)itemPerRow {
-    float itemPerRow = 7;
+    float itemPerRow = 4;
     
     UIInterfaceOrientation deviceOrient = [[UIApplication sharedApplication] statusBarOrientation];
+    UIUserInterfaceIdiom device = [[UIDevice currentDevice] userInterfaceIdiom];
+    
     switch (deviceOrient) {
         case UIInterfaceOrientationPortrait:
         case UIInterfaceOrientationPortraitUpsideDown:
-            itemPerRow = 2;
+            
+            switch (device) {
+                case UIUserInterfaceIdiomPhone:
+                    itemPerRow = 2;
+                    break;
+                    
+                case UIUserInterfaceIdiomPad:
+                    itemPerRow = 4;
+                    break;
+                default:
+                    break;
+            }
+            
             break;
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
-            itemPerRow = 3;
+            switch (device) {
+                case UIUserInterfaceIdiomPhone:
+                    itemPerRow = 4;
+                    break;
+                    
+                case UIUserInterfaceIdiomPad:
+                    itemPerRow = 7;
+                    break;
+                default:
+                    break;
+            }
             break;
             
         default:
@@ -80,6 +104,12 @@
     }
     
     return itemPerRow;
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    UICollectionViewLayout *layout = self.collectionView.collectionViewLayout;
+    [layout invalidateLayout];
 }
 
 
