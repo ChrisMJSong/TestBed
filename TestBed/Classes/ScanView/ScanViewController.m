@@ -12,7 +12,7 @@
 #import "ImageItem.h"
 #import "SideRulerView.h"
 
-@interface ScanViewController ()<UIScrollViewDelegate, ScanViewModelDelegate>
+@interface ScanViewController ()<UIScrollViewDelegate, ScanViewModelDelegate, SideRulerViewDelegate>
 @property (strong, nonatomic) ScanViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet GLView *glView;
 @property (weak, nonatomic) IBOutlet SideRulerView *sideRulerView;
@@ -54,6 +54,7 @@
     [self.glView setup];
     
     [self.sideRulerView setup];
+    self.sideRulerView.delegate = self;
     
     // load file
     self.viewModel = [[ScanViewModel alloc] init];
@@ -87,6 +88,7 @@
 
 - (void)didReceiveProbeHeadInfo:(ProbeHead)probeInfo {
     // 프로브 정보를 설정한다.
+    [self.sideRulerView setMinDepth:probeInfo.minDepth withMaxDepth:probeInfo.maxDepth];
     [self.glView setProbeHeadInfo:probeInfo];
 }
 
@@ -97,6 +99,11 @@
  */
 - (ScanViewMode)askViewMode{
     return self.viewMode;
+}
+
+#pragma mark - SideRulerViewDelegate
+- (void)didChangeDepth:(float)depth {
+    [self.glView setDepth:(NSInteger)depth];
 }
 
 #pragma mark - UIScrollViewDelegate

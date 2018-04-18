@@ -25,6 +25,8 @@ typedef struct{
     ProbeHeadType headType;
     float radius;           // base on Cm
     float footPrint;        // base on Cm
+    float minDepth;         // base on Cm
+    float maxDepth;         // base on Cm
     float fieldOfView;      // base on Degree
 }ProbeHead;
 

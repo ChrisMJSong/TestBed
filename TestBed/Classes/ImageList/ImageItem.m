@@ -109,11 +109,15 @@
             newProbe.radius         = 6.0;
             newProbe.fieldOfView    = 58.2125;
             newProbe.footPrint      = 6.0;
+            newProbe.minDepth       = 4;
+            newProbe.maxDepth       = 20;
         }else if ([headTypeString isEqualToString:@"Linear"]) {
             newProbe.headType = ProbeHeadTypeLinear;
             newProbe.radius         = 0;
             newProbe.fieldOfView    = 0;
             newProbe.footPrint      = 3.84;
+            newProbe.minDepth       = 2;
+            newProbe.maxDepth       = 10;
         }else {
             newProbe.headType = ProbeHeadTypeUnknown;
         }

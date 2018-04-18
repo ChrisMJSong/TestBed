@@ -27,12 +27,36 @@
 
 @interface SideRulerView()
 @property float depth;
+@property float minDepth;
+@property float maxDepth;
 @property float scale;
 @property CGSize originalSize;
 @property float contentOffsetY;
+@property float panStartPointY;
+
+/**
+ 패닝을 통해 깊이를 조절한다.
+ 
+ @param gesture 팬제스쳐 인스턴스
+ */
+- (void)panGestureAction:(UIPanGestureRecognizer *)gesture;
 @end
 
 @implementation SideRulerView
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        // 팬 제스쳐 추가
+        UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureAction:)];
+        panGesture.minimumNumberOfTouches = 1;
+        panGesture.maximumNumberOfTouches = 1;
+        [self addGestureRecognizer:panGesture];
+        
+        self.minDepth = 2;
+        self.maxDepth = 8;
+    }
+    return self;
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -96,6 +120,54 @@
     CGContextFillPath(context);
 }
 
+/**
+ 패닝을 통해 깊이를 조절한다.
+
+ @param gesture 팬제스쳐 인스턴스
+ */
+- (void)panGestureAction:(UIPanGestureRecognizer *)gesture {
+    
+    CGPoint touchPoint = [gesture locationInView:self];
+    CGPoint velocity = [gesture velocityInView:self];
+    
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            self.panStartPointY = touchPoint.y;
+            break;
+            
+        case UIGestureRecognizerStateChanged:
+            if (abs((int)(self.panStartPointY - touchPoint.y)) > PANNING_LENGTH) {
+                self.panStartPointY = touchPoint.y;
+                
+                if (velocity.y > 0) {
+                    // 아래로 패닝
+                    if (self.depth > self.minDepth) {
+                        --self.depth;
+                    }
+                }else{
+                    // 위로 패닝
+                    if (self.depth < self.maxDepth) {
+                        ++self.depth;
+                    }
+                }
+                
+                [self.delegate didChangeDepth:self.depth];
+            }
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self setNeedsDisplay];
+}
+
+/**
+ 초기설정
+ */
 - (void)setup {
     self.depth = 8;
     self.scale = 1;
@@ -103,21 +175,47 @@
     [self setNeedsDisplay];
 }
 
+/**
+ 깊이를 변경한다.
+ 
+ @param depth 목표 깊이
+ */
 - (void)changeDepth:(float)depth {
     self.depth = depth;
     [self setNeedsDisplay];
 }
 
+/**
+ 스케일을 변경한다.
+ 
+ @param scale 목표 스케일
+ */
 - (void)changeScale:(float)scale {
     self.scale = scale;
     [self setNeedsDisplay];
 }
 
+/**
+ 사이드룰러의 오프셋을 설정함.
+ 
+ @param contentOffset 사이드룰러 오프셋
+ */
 - (void)changeContentOffset:(CGPoint)contentOffset {
     // y값만 필요함.
     self.contentOffsetY = contentOffset.y;
     
     [self setNeedsDisplay];
+}
+
+/**
+ 최대, 최소 깊이를 설정함.
+
+ @param minDepth 최소 깊이
+ @param maxDepth 최대 깊이
+ */
+- (void)setMinDepth:(float)minDepth withMaxDepth:(float)maxDepth{
+    self.minDepth = minDepth;
+    self.maxDepth = maxDepth;
 }
 
 @end
