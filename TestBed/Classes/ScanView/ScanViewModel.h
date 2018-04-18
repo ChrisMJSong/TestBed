@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CommonHeader.h"
 
 typedef enum{
     ScanViewModeStream      = 0,
@@ -24,6 +25,20 @@ typedef enum{
  @param size 로우 포맷 이미지 크기
  */
 - (void)didReceiveRawData:(NSData *)data withSize:(CGSize)size;
+
+/**
+ 프레임 정보를 전송한다.
+
+ @param depth <#depth description#>
+ */
+- (void)didReceiveFrameInfo:(NSNumber *)depth;
+
+/**
+ 프로브 헤드 정보를 전송한다.
+
+ @param probeInfo 프로브 헤드 구조체
+ */
+- (void)didReceiveProbeHeadInfo:(ProbeHead)probeInfo;
 
 /**
  뷰 모드를 묻는다.

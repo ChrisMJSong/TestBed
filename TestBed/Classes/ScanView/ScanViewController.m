@@ -7,10 +7,13 @@
 //
 
 #import "ScanViewController.h"
+#import "ScanViewModel.h"
 #import "GLView.h"
+#import "ImageItem.h"
 #import "SideRulerView.h"
 
 @interface ScanViewController ()<UIScrollViewDelegate, ScanViewModelDelegate>
+@property (strong, nonatomic) ScanViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet GLView *glView;
 @property (weak, nonatomic) IBOutlet SideRulerView *sideRulerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -53,18 +56,13 @@
     [self.sideRulerView setup];
     [self.sideRulerView changeDepth:4];
     
+    // load file
+    self.viewModel = [[ScanViewModel alloc] init];
+    self.viewModel.delegate = self;
+    [self.viewModel setup];
+    
     self.isInit = true;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)modalClose:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -81,6 +79,16 @@
 - (void)didReceiveRawData:(NSData *)data withSize:(CGSize)size{
     // 받은 데이터를 업데이트한다.
     [self.glView updateScanData:data withSize:size];
+}
+
+- (void)didReceiveFrameInfo:(NSNumber *)depth {
+    [self.glView setDepth:depth.integerValue];
+    [self.sideRulerView changeDepth:depth.floatValue];
+}
+
+- (void)didReceiveProbeHeadInfo:(ProbeHead)probeInfo {
+    // 프로브 정보를 설정한다.
+    [self.glView setProbeHeadInfo:probeInfo];
 }
 
 /**

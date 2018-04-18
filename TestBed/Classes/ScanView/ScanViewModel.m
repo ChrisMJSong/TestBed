@@ -20,6 +20,9 @@
 
 - (void)setup{
     ScanViewMode mode = [self.delegate askViewMode];
+    
+    ImageItem *item = nil;
+    
     switch (mode) {
         case ScanViewModeStream:
             
@@ -31,8 +34,21 @@
             break;
             
         case ScanViewModeViewerImage:
+        {
+            // 이미지 로드
+            item = [self.delegate imageItem];
+            NSData *firstImage = [item frameDataAtIndex:0];
+            // NOTE: Raw데이터의 크기는 1024 x 128 고정이다.
+            [self.delegate didReceiveRawData:firstImage withSize:CGSizeMake(128, 1024)];
+            NSNumber *fristInfo = [item frameInfoAtIndex:0];
+            [self.delegate didReceiveFrameInfo:fristInfo];
             break;
+        }
     }
+    
+    // 공통
+    ProbeHead probe = [item probeInfo];
+    [self.delegate didReceiveProbeHeadInfo:probe];
 }
 
 - (void)loadNextImage{

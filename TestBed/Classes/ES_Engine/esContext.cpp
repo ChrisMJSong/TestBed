@@ -174,38 +174,25 @@ void ESContext::init(){
     "uniform mat4 Modelview;                        \n"
     "uniform mat4 Aspect;                           \n"
     "uniform mat4 MoveOffset;                       \n"
-    "uniform float vValue;                          \n"
-    "uniform float x1;                              \n"
-    "uniform float x2;                              \n"
-    "uniform float meshType; \n"
-    "out float posX;    "
-    "out vec2 vLateralEdge; "
-    // Clipping하기 위해 필요함.
     "layout(location = 0) in vec2 a_position;       \n"
     "layout(location = 1) in vec3 a_texCoord;       \n"
     "out vec3 v_texCoord;                           \n"
-    "out float oValue;                              \n"
     "void main()                                    \n"
     "{                                              \n"
-    " v_texCoord = a_texCoord;                      \n"
-    " oValue = vValue;                              \n"
-    " vLateralEdge = vec2(x1, x2);"
-    " posX = a_position.x;"
-    " gl_Position = vec4(a_position, 0.0f, 1.0f) * Move *Aspect* Modelview;  \n"
+    " v_texCoord = a_texCoord; \n"
+    " gl_Position = vec4(a_position, 0.0f, 1.0f) * Move *Aspect* Modelview * MoveOffset;  \n"
     "}                                              \n";
     
     char fShaderScanConversion[] =
     "#version 300 es                                \n"
     "precision highp float;                         \n"
     "in vec3 v_texCoord;                            \n"
-    "in float oValue;                               \n"
-    "in vec2 vLateralEdge;                       "
-    "in float posX; "
     "layout(location = 0) out vec4 outColor;        \n"
     "uniform sampler2D s_baseMap;                   \n"
     "void main()                                    \n"
     "{                                              \n"
-    "   outColor = vec4(1.0, 1.0, 0.0, 1.0);        \n"
+    " vec2 vCoord = vec2(v_texCoord.x/v_texCoord.z, v_texCoord.y);\n"
+    " outColor = texture( s_baseMap, vCoord);       \n"
     "}                                              \n";
     
     switch (esVersion) {
@@ -230,12 +217,19 @@ void ESContext::initWithViewsize(int width, int height){
 }
 
 void ESContext::draw(){
+    // Set the viewport
+    glViewport ( 0, 0, _viewInfo.width, _viewInfo.height);
     
-    float yOffset = 0;
-    float vertices[20] = {0}; //{x, y, u, v}
+    // Clear the color buffer
+    glClearColor ( 0.0f, 0.0f, 0.0f, 1.0f );
+    glClear ( GL_COLOR_BUFFER_BIT );
     
+    drawUSImage();
+}
+
+void ESContext::drawUSImage(){
     if (_indices == NULL) {
-        _indices = (GLushort *)malloc(sizeof(short) * kTotalVertexCount);
+        _indices = (GLushort *)malloc(sizeof(short)*kTotalVertexCount);
     }
     
     for (int i=0; i<kTotalVertexCount; ++i) {
@@ -244,42 +238,57 @@ void ESContext::draw(){
     
     glUseProgram(_programObject);
     
-    // Set the viewport
-    glViewport ( 0, 0, _viewInfo.width, _viewInfo.height);
-    
-    // Clear the color buffer
-    glClearColor ( 0.0f, 0.0f, 0.0f, 1.0f );
-    glClear ( GL_COLOR_BUFFER_BIT );
-    
-    vertices[0] = -0.5;
-    vertices[1] = 0.5 + yOffset;
-
-    vertices[5] = 0.5;
-    vertices[6] = 0.5 + yOffset;
-
-    vertices[10] = -0.5;
-    vertices[11] = -0.5 + yOffset;
-
-    vertices[15] = 0.5;
-    vertices[16] = -0.5 + yOffset;
-    
-    for (int i=0; i<4; ++i) {
-        vertices[i * 5+2] = 1.0;
-        vertices[i * 5+3] = 1;
-        vertices[i * 5+4] = 1;
-    }
-    
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
+    // set the Veritices
+    createVeritices(&_vVertices, _probeHead, _depth);
+//
+    // Load the vertex data
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
 
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), vertices);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), &vertices[2]);
-    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT, _indices);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), _vVertices);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), &_vVertices[2]);
+
+    // Bind the base map
+    glActiveTexture ( GL_TEXTURE0 );
+    glBindTexture ( GL_TEXTURE_2D, _textureId );
+    glUniform1i ( _baseMapLoc, 0 );
+
+    glDrawElements(GL_TRIANGLE_STRIP, kTotalVertexCount, GL_UNSIGNED_SHORT, _indices);
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
+//    float yOffset = 0;
+//    _vVertices[0] = -0.5;
+//    _vVertices[1] = 0.5 + yOffset;
+//
+//    _vVertices[5] = 0.5;
+//    _vVertices[6] = 0.5 + yOffset;
+//
+//    _vVertices[10] = -0.5;
+//    _vVertices[11] = -0.5 + yOffset;
+//    _vVertices[15] = 0.5;
+//    _vVertices[16] = -0.5 + yOffset;
+//
+//    for (int i=0; i<4; ++i) {
+//        _vVertices[i * 5+2] = 1.0;
+//        _vVertices[i * 5+3] = 1;
+//        _vVertices[i * 5+4] = 1;
+//    }
+//
+//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//
+//    glEnableVertexAttribArray(0);
+//    glEnableVertexAttribArray(1);
+//
+//    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), _vVertices);
+//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), &_vVertices[2]);
+////    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT, _indices);
+//    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT, _indices);
+//
+//
+//    glDisableVertexAttribArray(0);
+//    glDisableVertexAttribArray(1);
+
     
 }
 
@@ -307,7 +316,7 @@ void ESContext::update(GLfloat timeDelta){
     
     float move[16]={
         1, 0, 0, 0,
-        0, 1, 0, 0,//off,
+        0, 1, 0, off,
         0, 0, 1, 0,
         0, 0, 0, 1
     };
@@ -346,6 +355,11 @@ void ESContext::update(GLfloat timeDelta){
     GLint moveOffsetUniform = glGetUniformLocation(_programObject, "MoveOffset");
     glUniformMatrix4fv(moveOffsetUniform, 1, 0, moveOffset);
     
+}
+
+
+void ESContext::setProbeInfo(ProbeHead probe) {
+    _probeHead = probe;
 }
 
 GLuint ESContext::loadTexture(GLubyte *buf, int width, int height){
@@ -419,14 +433,6 @@ bool ESContext::updateTexture(GLubyte *buffer, int width, int height){
             }
             _rBuf[targetIndex] = value;
         }
-    }
-    
-    if (_indices == NULL) {
-        _indices = (GLushort *)malloc(sizeof(short)*kTotalVertexCount);
-    }
-    
-    for (int i=0; i<kTotalVertexCount; ++i) {
-        _indices[i] = i;
     }
     
     glGenTextures ( 1, &texId );

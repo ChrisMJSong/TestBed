@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#import "CommonHeader.h"
 
 @interface GLView : GLKView
 
@@ -26,6 +27,20 @@
  @param data 로우 포맷 데이터
  */
 - (void)updateScanData:(NSData *)data withSize:(CGSize)size;
+
+/**
+ 프로브 정보를 설정한다.
+
+ @param probeInfo 프로브 정보 구조체
+ */
+- (void)setProbeHeadInfo:(ProbeHead)probeInfo;
+
+/**
+ 깊이를 설정한다.
+
+ @param depth 깊이값
+ */
+- (void)setDepth:(NSInteger)depth;
 
 /**
  메모리를 강제로 해제한다.

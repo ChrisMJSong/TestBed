@@ -29,6 +29,7 @@ typedef struct {
 } ViewInfo;
 
 class ESContext {
+    ProbeHead _probeHead;
     ViewInfo _viewInfo;
     
     GLuint _programObject;
@@ -51,8 +52,6 @@ class ESContext {
     GLuint loadRGBTexture(GLubyte *buf, int width, int height);
     
 public:
-    // PWOption
-    ProbeHead _probeHead;
     GLuint _depth;
     GLubyte *_tBuf;
     
@@ -61,6 +60,7 @@ public:
     void initWithViewsize(int width, int height);
     void draw();
     void drawUSImage();
+    void setProbeInfo(ProbeHead probe);
     void update(GLfloat timeDelta);
     bool updateTexture(GLubyte *buffer, int width, int height);
     int esVersion;

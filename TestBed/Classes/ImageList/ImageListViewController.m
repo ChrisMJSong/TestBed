@@ -42,7 +42,8 @@
         UINavigationController *navi = segue.destinationViewController;
         ScanViewController *viewController = navi.viewControllers.lastObject;
         
-        viewController.viewMode = ScanViewModeStream;
+        viewController.viewMode = ScanViewModeViewerImage;
+        viewController.imageItem = sender;
     }
 }
 
@@ -54,10 +55,37 @@
     [_viewModel setup];
 }
 
+/**
+ 한 줄에 갖는 아이템 갯수를 돌려준다.
+ 
+ @return 아이템 갯수
+ */
+- (float)itemPerRow {
+    float itemPerRow = 7;
+    
+    UIInterfaceOrientation deviceOrient = [[UIApplication sharedApplication] statusBarOrientation];
+    switch (deviceOrient) {
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+            itemPerRow = 4;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            itemPerRow = 5;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return itemPerRow;
+}
+
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    ImageItem *item = [self.viewModel itemAt:indexPath.row];
+    [self performSegueWithIdentifier:@"SegueScan" sender:item];
 }
 
 - (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +112,10 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(100, 100);
+    float cellPadding = [self itemPerRow] * 2 - 2;
+    float itemWidth = (collectionView.frame.size.width - cellPadding) / [self itemPerRow];
+    
+    return CGSizeMake(itemWidth, itemWidth);
 }
 
 @end

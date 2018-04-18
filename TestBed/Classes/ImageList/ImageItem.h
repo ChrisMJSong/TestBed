@@ -7,15 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommonHeader.h"
 
 @interface ImageItem : NSObject
 
 @property (strong) NSString *fileName;
 @property (strong) NSString *filePath;
+@property (assign) ProbeHead probeHead;
 
 + (ImageItem *)streamingItem;
 
 - (void)loadFrameDatas;
 - (void)unloadFrameDatas;
+- (ProbeHead)probeInfo;
+- (NSNumber *)frameInfoAtIndex:(NSInteger)index;
 - (NSData *)frameDataAtIndex:(NSInteger)index;
 @end

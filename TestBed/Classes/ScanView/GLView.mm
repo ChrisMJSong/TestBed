@@ -49,6 +49,24 @@
 }
 
 /**
+ 프로브 정보를 설정한다.
+ 
+ @param probeInfo 프로브 정보 구조체
+ */
+- (void)setProbeHeadInfo:(ProbeHead)probeInfo {
+    _esContext->setProbeInfo(probeInfo);
+}
+
+/**
+ 깊이를 설정한다.
+ 
+ @param depth 깊이값
+ */
+- (void)setDepth:(NSInteger)depth {
+    _esContext->_depth = depth;
+}
+
+/**
  메모리를 강제로 해제한다.
  */
 - (void)readyToRelease {
