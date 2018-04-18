@@ -100,8 +100,11 @@
             newProbe.headType = ProbeHeadTypeConvex;
             newProbe.radius         = 6.0;
             newProbe.fieldOfView    = 58.2125;
+            newProbe.footPrint      = 6.0;
         }else if ([headTypeString isEqualToString:@"Linear"]) {
             newProbe.headType = ProbeHeadTypeLinear;
+            newProbe.radius         = 0;
+            newProbe.fieldOfView    = 0;
             newProbe.footPrint      = 3.84;
         }else {
             newProbe.headType = ProbeHeadTypeUnknown;

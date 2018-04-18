@@ -54,7 +54,6 @@
     [self.glView setup];
     
     [self.sideRulerView setup];
-    [self.sideRulerView changeDepth:4];
     
     // load file
     self.viewModel = [[ScanViewModel alloc] init];
