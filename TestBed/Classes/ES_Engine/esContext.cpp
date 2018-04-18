@@ -284,8 +284,8 @@ void ESContext::draw(){
 }
 
 void ESContext::update(GLfloat timeDelta){
-    float defaultHeight = 341.0f;   // 물리적인 높이. 현재 기준: scan co
-    float viewHeight = 512.0f;      // view size
+    float defaultHeight = PHYSICAL_HEIGHT;   // 물리적인 높이. 현재 기준: scan co
+    float viewHeight = TARGET_VIEW_HEIGHT;      // view size
 
     float totalHeight = (defaultHeight/_depth)*_probeHead.radius + defaultHeight;    // 삼각 호의 총 높이. (r+depth)
 
@@ -470,8 +470,8 @@ void ESContext::createVeriticesArc(GLfloat **buffer, ProbeHead head, GLuint dept
     double dtheta = pi / SLICE_COUNT;
     float unit = 1.0f/(SLICE_COUNT);
     
-    float defaultHeight = 341.0f;   // 물리적인 높이. 현재 기준: scan co
-    float viewHeight = 512.0f;    // view size
+    float defaultHeight = PHYSICAL_HEIGHT;   // 물리적인 높이. 현재 기준: scan co
+    float viewHeight = TARGET_VIEW_HEIGHT;    // view size
     float radius =  (defaultHeight/viewHeight)*2;
     
     
@@ -565,8 +565,8 @@ void ESContext::createVeriticesRect(GLfloat **buffer, ProbeHead head, GLuint dep
     float ratio = head.footPrint / depth;
     float unit = 1.0f/SLICE_COUNT;
     
-    float viewHeight = 512.0f;      // view size
-    float defaultHeight = 341.0f;   // 물리적인 높이. 현재 기준: scan co
+    float viewHeight = TARGET_VIEW_HEIGHT;      // view size
+    float defaultHeight = PHYSICAL_HEIGHT;   // 물리적인 높이. 현재 기준: scan co
     float radius =  (defaultHeight/viewHeight)*2;
     
     float diameter = radius * ratio;

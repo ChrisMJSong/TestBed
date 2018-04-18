@@ -7,6 +7,7 @@
 //
 
 #import "SideRulerView.h"
+#import "CommonHeader.h"
 
 #define OFFSET_X_START      40.0f
 #define RULLER_WIDTH_BIG    20.0f
@@ -18,7 +19,7 @@
 #define LINE_COLOR      [UIColor whiteColor]
 #define TEXT_COLOR      [UIColor whiteColor]
 #define CUSOR_COLOR     [UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:0.3f]
-#define RULLER_LENGTH   (self.originalSize.height  *  (341.0 / 512))
+#define RULLER_LENGTH   (self.originalSize.height  *  (PHYSICAL_HEIGHT / TARGET_VIEW_HEIGHT))
 #define PANNING_LENGTH  (IS_PHONE?40:60)
 #define IS_PHONE        ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 

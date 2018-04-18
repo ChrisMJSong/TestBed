@@ -78,6 +78,7 @@
 		8378F588208602200011DF95 /* SideRulerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideRulerView.m; sourceTree = "<group>"; };
 		8378F58D208612F00011DF95 /* ScanViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewModel.h; sourceTree = "<group>"; };
 		8378F58E208612F00011DF95 /* ScanViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewModel.m; sourceTree = "<group>"; };
+		8378F59720871CFF0011DF95 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		83E6B93F2085B53C00431DF1 /* img_abdomen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_abdomen; sourceTree = "<group>"; };
 		83E6B9412085B59000431DF1 /* img_thyroid */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img_thyroid; sourceTree = "<group>"; };
 		83E6B9422085B59000431DF1 /* stream */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stream; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 		83E6B93E2085AFA300431DF1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8378F59720871CFF0011DF95 /* CommonHeader.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";

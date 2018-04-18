@@ -9,6 +9,9 @@
 #ifndef CommonHeader_h
 #define CommonHeader_h
 
+#define TARGET_VIEW_HEIGHT  512.0
+#define PHYSICAL_HEIGHT (TARGET_VIEW_HEIGHT * 0.8)
+
 typedef enum {
     ProbeHeadTypeUnknown = -1,
     ProbeHeadTypeConvex = 0,
