@@ -2,7 +2,7 @@
 /* Binary converter version 0.1
 /* 
 /* FileName:	Thyroid_2017_10_19_15_40_12
-/* Probe Type:	Convex
+/* Probe Type:	Linear
 /* Preset:	Thyroid
 /* Frame:	1 Frames
 /**********
