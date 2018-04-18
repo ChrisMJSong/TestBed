@@ -68,6 +68,11 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (IBAction)rotateByY:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    [self.glView toggleRotate:sender.isSelected];
+}
+
 
 #pragma mark - ScanViewModelDelegate
 /**

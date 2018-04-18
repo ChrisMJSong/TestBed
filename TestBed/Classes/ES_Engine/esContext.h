@@ -40,6 +40,8 @@ class ESContext {
     GLushort *_indices;
     GLubyte *_rBuf;         // rBuf: BMode nBuf: Doppler
     bool _textureUpdated;
+    bool _isRotate;
+    float _rotateDelta;
     float _offsetY;
     
     bool createWindow(const char *title, GLint width, GLint height, GLint flags);
@@ -61,6 +63,7 @@ public:
     void draw();
     void drawUSImage();
     void setProbeInfo(ProbeHead probe);
+    void setRotate(bool isRotate);
     void update(GLfloat timeDelta);
     bool updateTexture(GLubyte *buffer, int width, int height);
     int esVersion;

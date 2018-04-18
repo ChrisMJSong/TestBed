@@ -15,5 +15,6 @@
 @property (assign) ScanViewMode viewMode;
 @property (assign) ImageItem *imageItem;
 - (IBAction)modalClose:(id)sender;
+- (IBAction)rotateByY:(UIButton *)sender;
 
 @end

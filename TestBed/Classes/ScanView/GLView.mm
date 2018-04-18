@@ -78,6 +78,13 @@
     self.esContext = nil;
 }
 
+/**
+ 이미지를 Y축으로 회전시킨다.
+ */
+- (void)toggleRotate:(BOOL)isRotate {
+    self.esContext->setRotate(isRotate);
+}
+
 - (void)initESContextWithGLESVersion:(EAGLRenderingAPI)api {
     
     [EAGLContext setCurrentContext:self.context];

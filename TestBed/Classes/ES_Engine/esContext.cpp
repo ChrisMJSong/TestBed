@@ -32,6 +32,8 @@ typedef FILE esFile;
 
 ESContext::ESContext(){
     _viewInfo = ViewInfo();
+    _isRotate = false;
+    _rotateDelta = 0;
     
     _vVertices  = NULL;
     _indices    = NULL;
@@ -173,6 +175,7 @@ void ESContext::init(){
     "uniform mat4 Move;                             \n"
     "uniform mat4 Modelview;                        \n"
     "uniform mat4 Aspect;                           \n"
+    "uniform mat4 Rotate;                           \n"
     "uniform mat4 MoveOffset;                       \n"
     "layout(location = 0) in vec2 a_position;       \n"
     "layout(location = 1) in vec3 a_texCoord;       \n"
@@ -180,7 +183,7 @@ void ESContext::init(){
     "void main()                                    \n"
     "{                                              \n"
     " v_texCoord = a_texCoord; \n"
-    " gl_Position = vec4(a_position, 0.0f, 1.0f) * Move *Aspect* Modelview * MoveOffset;  \n"
+    " gl_Position = vec4(a_position, 0.0f, 1.0f) * Move * Aspect * Modelview * Rotate * MoveOffset;  \n"
     "}                                              \n";
     
     char fShaderScanConversion[] =
@@ -335,13 +338,20 @@ void ESContext::update(GLfloat timeDelta){
         0, 0, 0, 1
     };
 
-//    // Rotation Y
-//    float rotateMatrix[16] = {
-//        cosf(rotateDelta), 0, sinf(rotateDelta), 0,
-//        0, 1, 0, 0,
-//        -sinf(rotateDelta), 0, cosf(rotateDelta), 0,
-//        0, 0, 0, 1
-//    };
+    // Rotation Y
+    if (_isRotate) {
+        _rotateDelta += timeDelta;
+        if (_rotateDelta > M_PI * 2) {
+            _rotateDelta = 0;
+        }
+    }
+    
+    float rotateMatrix[16] = {
+        cosf(_rotateDelta), 0, sinf(_rotateDelta), 0,
+        0, 1, 0, 0,
+        -sinf(_rotateDelta), 0, cosf(_rotateDelta), 0,
+        0, 0, 0, 1
+    };
     
     GLint aspectUniform = glGetUniformLocation(_programObject, "Aspect");
     glUniformMatrix4fv(aspectUniform, 1, 0, aspect);
@@ -352,6 +362,9 @@ void ESContext::update(GLfloat timeDelta){
     GLint modelviewUniform = glGetUniformLocation(_programObject, "Modelview");
     glUniformMatrix4fv(modelviewUniform, 1, 0, scale);
     
+    GLint rotateviewUniform = glGetUniformLocation(_programObject, "Rotate");
+    glUniformMatrix4fv(rotateviewUniform, 1, 0, rotateMatrix);
+    
     GLint moveOffsetUniform = glGetUniformLocation(_programObject, "MoveOffset");
     glUniformMatrix4fv(moveOffsetUniform, 1, 0, moveOffset);
     
@@ -360,6 +373,10 @@ void ESContext::update(GLfloat timeDelta){
 
 void ESContext::setProbeInfo(ProbeHead probe) {
     _probeHead = probe;
+}
+
+void ESContext::setRotate(bool isRotate) {
+    _isRotate = isRotate;
 }
 
 GLuint ESContext::loadTexture(GLubyte *buf, int width, int height){

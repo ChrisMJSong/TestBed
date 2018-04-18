@@ -19,24 +19,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3i4-nA-IR9">
-                                <rect key="frame" x="87" y="116" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Demo Stream"/>
-                                <connections>
-                                    <segue destination="Y5I-uj-LQG" kind="presentation" identifier="SegueScan" id="aJX-aV-W1p"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP7-nu-5Qe">
-                                <rect key="frame" x="87" y="324" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP7-nu-5Qe">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                                 <state key="normal" title="Viewer"/>
                                 <connections>
                                     <segue destination="2Dx-fN-H6h" kind="show" id="5Vh-UJ-1fU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3i4-nA-IR9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                <state key="normal" title="Control Demo"/>
+                                <connections>
+                                    <segue destination="Y5I-uj-LQG" kind="presentation" identifier="SegueScan" id="aJX-aV-W1p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bP7-nu-5Qe" firstAttribute="height" secondItem="3i4-nA-IR9" secondAttribute="height" id="GdL-Ua-eka"/>
+                            <constraint firstItem="bP7-nu-5Qe" firstAttribute="top" secondItem="3i4-nA-IR9" secondAttribute="bottom" id="QRS-pw-OsM"/>
+                            <constraint firstItem="bP7-nu-5Qe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qv2-Fc-9L5"/>
+                            <constraint firstItem="bP7-nu-5Qe" firstAttribute="width" secondItem="3i4-nA-IR9" secondAttribute="width" id="Siv-Lf-4ue"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bP7-nu-5Qe" secondAttribute="trailing" id="WRy-jl-yJQ"/>
+                            <constraint firstItem="3i4-nA-IR9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wln-PM-MKn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bP7-nu-5Qe" secondAttribute="bottom" id="iHD-t1-xKm"/>
+                            <constraint firstItem="3i4-nA-IR9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qwr-T7-6CH"/>
+                            <constraint firstItem="bP7-nu-5Qe" firstAttribute="top" secondItem="3i4-nA-IR9" secondAttribute="bottom" id="uDv-Mj-US6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3i4-nA-IR9" secondAttribute="trailing" id="vYK-Kl-bzx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rof-B0-f0W"/>
@@ -86,6 +96,16 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHb-FI-YWT" userLabel="ControlView">
                                 <rect key="frame" x="0.0" y="375" width="375" height="228"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jZ-dv-UQ7">
+                                        <rect key="frame" x="8" y="8" width="82" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Rotate"/>
+                                        <connections>
+                                            <action selector="rotateByY:" destination="jLI-8z-sfQ" eventType="touchUpInside" id="a4N-jf-cwR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -121,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUE-6M-Knu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2040.5" y="133.5"/>
+            <point key="canvasLocation" x="2039.2" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8K-lU-JaO">
@@ -147,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pnp-Qx-gsa"/>
+                        <segue destination="2Dx-fN-H6h" kind="relationship" relationship="rootViewController" id="xma-No-6Cs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zs-F1-TkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,6 +230,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qhD-hq-9m3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="C1g-dW-jae"/>
                     <connections>
                         <outlet property="collectionView" destination="DNm-xi-abE" id="3sh-Hl-sYK"/>
                         <segue destination="Y5I-uj-LQG" kind="presentation" identifier="SegueScan" id="0qQ-mE-HL4"/>
@@ -221,6 +242,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0qQ-mE-HL4"/>
+        <segue reference="xma-No-6Cs"/>
+        <segue reference="aJX-aV-W1p"/>
     </inferredMetricsTieBreakers>
 </document>

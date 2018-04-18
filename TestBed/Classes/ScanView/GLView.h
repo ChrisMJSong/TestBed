@@ -46,4 +46,9 @@
  메모리를 강제로 해제한다.
  */
 - (void)readyToRelease;
+
+/**
+ 이미지를 Y축으로 회전시킨다.
+ */
+- (void)toggleRotate:(BOOL)isRotate;
 @end
