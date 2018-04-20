@@ -63,7 +63,7 @@
  @param depth 깊이값
  */
 - (void)setDepth:(NSInteger)depth {
-    _esContext->_depth = depth;
+    _esContext->_depth = (int)depth;
 }
 
 /**
