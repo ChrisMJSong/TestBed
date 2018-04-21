@@ -230,6 +230,9 @@ void ESContext::draw(){
     drawUSImage();
 }
 
+/**
+ US이미지 렌더링
+ */
 void ESContext::drawUSImage(){
     if (_indices == NULL) {
         _indices = (GLushort *)malloc(sizeof(short)*kTotalVertexCount);
@@ -260,41 +263,13 @@ void ESContext::drawUSImage(){
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
-//    float yOffset = 0;
-//    _vVertices[0] = -0.5;
-//    _vVertices[1] = 0.5 + yOffset;
-//
-//    _vVertices[5] = 0.5;
-//    _vVertices[6] = 0.5 + yOffset;
-//
-//    _vVertices[10] = -0.5;
-//    _vVertices[11] = -0.5 + yOffset;
-//    _vVertices[15] = 0.5;
-//    _vVertices[16] = -0.5 + yOffset;
-//
-//    for (int i=0; i<4; ++i) {
-//        _vVertices[i * 5+2] = 1.0;
-//        _vVertices[i * 5+3] = 1;
-//        _vVertices[i * 5+4] = 1;
-//    }
-//
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//
-//    glEnableVertexAttribArray(0);
-//    glEnableVertexAttribArray(1);
-//
-//    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), _vVertices);
-//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5*sizeof(GLfloat), &_vVertices[2]);
-////    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT, _indices);
-//    glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_SHORT, _indices);
-//
-//
-//    glDisableVertexAttribArray(0);
-//    glDisableVertexAttribArray(1);
-
-    
 }
 
+/**
+ 업데이트 프로세서
+ 
+ @param timeDelta 마지막 업데이트로부터 경과시간.
+ */
 void ESContext::update(GLfloat timeDelta){
     float defaultHeight = PHYSICAL_HEIGHT;   // 물리적인 높이. 현재 기준: scan co
     float viewHeight = TARGET_VIEW_HEIGHT;      // view size
@@ -370,55 +345,32 @@ void ESContext::update(GLfloat timeDelta){
     
 }
 
-
+/**
+ 프로브 정보를 설정한다.
+ 
+ @param probe 프로브 정보 구조체
+ */
 void ESContext::setProbeInfo(ProbeHead probe) {
     _probeHead = probe;
 }
 
+/**
+ 이미지를 회전시킨다.
+ 
+ @param isRotate 회전 여부
+ */
 void ESContext::setRotate(bool isRotate) {
     _isRotate = isRotate;
 }
 
-GLuint ESContext::loadTexture(GLubyte *buf, int width, int height){
-    GLuint texId = 0;
-    
-    if (buf == NULL) {
-        esLogMessage("Errlr loading Texture");
-        return 0;
-    }
-    
-    glGenTextures ( 1, &texId );
-    glBindTexture ( GL_TEXTURE_2D, texId );
-    glTexImage2D ( GL_TEXTURE_2D, 0, GL_LUMINANCE, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, buf );
-    
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
-    
-    return texId;
-}
-
-GLuint ESContext::loadRGBTexture(GLubyte *buf, int width, int height){
-    GLuint texId = 0;
-    
-    if (buf == NULL) {
-        esLogMessage("Errlr loading Texture");
-        return 0;
-    }
-    
-    glGenTextures ( 1, &texId );
-    glBindTexture ( GL_TEXTURE_2D, texId );
-    glTexImage2D ( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, buf );
-    
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
-    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
-    
-    return texId;
-}
-
+/**
+ 텍스쳐를 업데이트한다.
+ 
+ @param buffer 텍스처 데이터
+ @param width 텍스처 데이터 가로 사이즈
+ @param height 텍스처 데이터 세로 사이즈
+ @return 텍스처 생성 성공 여부
+ */
 bool ESContext::updateTexture(GLubyte *buffer, int width, int height){
     
     if (buffer == NULL) {
@@ -464,6 +416,15 @@ bool ESContext::updateTexture(GLubyte *buffer, int width, int height){
     return texId != 0;
 }
 
+
+#pragma mark - Local Method
+/**
+ 버텍스 버퍼를 형성한다.
+ 
+ @param buffer 버텍스 버퍼 포인터
+ @param head 프로브 헤드 정보
+ @param depth 깊이
+ */
 void ESContext::createVeritices(GLfloat **buffer, ProbeHead head, GLuint depth){
     // Set Veritices
     if (*buffer == NULL) {
@@ -484,6 +445,13 @@ void ESContext::createVeritices(GLfloat **buffer, ProbeHead head, GLuint depth){
     }
 }
 
+/**
+ 호(Arc) 형태의 버텍스 버퍼를 형성한다.
+ 
+ @param buffer 버텍스 버퍼 포인터
+ @param head 프로브 헤드 정보
+ @param depth 깊이
+ */
 void ESContext::createVeriticesArc(GLfloat **buffer, ProbeHead head, GLuint depth){
     GLfloat *buf = *buffer;
     GLuint totalVertexCount = kTotalVertexCount;
@@ -580,11 +548,18 @@ void ESContext::createVeriticesArc(GLfloat **buffer, ProbeHead head, GLuint dept
     }
 }
 
+/**
+ 사각형 형태의 버텍스 버퍼를 형성한다.
+ 
+ @param buffer 버텍스 버퍼
+ @param head 프로브 헤드 정보
+ @param depth 깊이
+ */
 void ESContext::createVeriticesRect(GLfloat **buffer, ProbeHead head, GLuint depth){
     
     GLfloat *buf = *buffer;
     GLuint totalVertexCount = kTotalVertexCount;
-
+    
     float ratio = head.footPrint / depth;
     float unit = 1.0f/SLICE_COUNT;
     
@@ -616,4 +591,60 @@ void ESContext::createVeriticesRect(GLfloat **buffer, ProbeHead head, GLuint dep
         buf[i*10+8] = 1.0f;
         buf[i*10+9] = 1;
     }
+}
+
+/**
+ 흑백(Grayscale)텍스처를 생성한다.
+ 
+ @param buf 텍스처 이미지 버퍼
+ @param width 이미지 가로 크기
+ @param height 이미지 세로 크기
+ @return 텍스처 아이디
+ */
+GLuint ESContext::loadTexture(GLubyte *buf, int width, int height){
+    GLuint texId = 0;
+    
+    if (buf == NULL) {
+        esLogMessage("Errlr loading Texture");
+        return 0;
+    }
+    
+    glGenTextures ( 1, &texId );
+    glBindTexture ( GL_TEXTURE_2D, texId );
+    glTexImage2D ( GL_TEXTURE_2D, 0, GL_LUMINANCE, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, buf );
+    
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+    
+    return texId;
+}
+
+/**
+ 컬러(RGBA) 텍스처를 생성한다.
+ 
+ @param buf 텍스처 이미지 버퍼
+ @param width 이미지 가로 크기
+ @param height 이미지 세로 크기
+ @return 텍스처 아이디
+ */
+GLuint ESContext::loadRGBTexture(GLubyte *buf, int width, int height){
+    GLuint texId = 0;
+    
+    if (buf == NULL) {
+        esLogMessage("Errlr loading Texture");
+        return 0;
+    }
+    
+    glGenTextures ( 1, &texId );
+    glBindTexture ( GL_TEXTURE_2D, texId );
+    glTexImage2D ( GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, buf );
+    
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+    glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+    
+    return texId;
 }
