@@ -85,6 +85,11 @@
     self.esContext->setRotate(isRotate);
 }
 
+/**
+ 타깃 ES버전으로 esContext를 초기화시킴.
+
+ @param api GL API레벨
+ */
 - (void)initESContextWithGLESVersion:(EAGLRenderingAPI)api {
     
     [EAGLContext setCurrentContext:self.context];
@@ -101,21 +106,37 @@
     }
 }
 
+/**
+ 마지막 업데이트 된 시간으로부터 소요시간을 계산함.
+
+ @return 소요시간
+ */
 - (NSTimeInterval)timeSinceLastUpdate {
     if (!self.lastUpdate) return 0;
     return [[NSDate date] timeIntervalSinceDate:self.lastUpdate];
 }
 
+/**
+ GL 렌더링
+ */
 - (void)rendering {
-    [self update];
-    [self setNeedsDisplay];
+    [self update];          // Processing
+    [self setNeedsDisplay]; // Drawing
 }
 
+/**
+ 프로세스 업데이트
+ */
 - (void)update {
     _esContext->update([self timeSinceLastUpdate]);
     self.lastUpdate = [NSDate date];
 }
 
+/**
+ 드로우
+
+ @param rect 렌더링 렉트
+ */
 - (void)drawRect:(CGRect)rect {
     _esContext->draw();
 }
