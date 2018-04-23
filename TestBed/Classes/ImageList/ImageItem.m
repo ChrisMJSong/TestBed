@@ -83,16 +83,27 @@
     }
 }
 
+/**
+ 프레임 데이터를 불러온다.
+ */
 - (void)unloadFrameDatas{
     [self.frameDatas removeAllObjects];
     self.frameDatas = nil;
 }
 
+/**
+ 프레임 데이터의 메모리를 해제한다.
+ */
 - (void)unloadFrameInfos{
     [self.frameInfos removeAllObjects];
     self.frameInfos = nil;
 }
 
+/**
+ 프로브 정보를 돌려준다.
+ 
+ @return 프로브 정보 구조체
+ */
 - (ProbeHead)probeInfo {
     if (!self.probeHead.headType) {
         ProbeHead newProbe;
@@ -127,12 +138,23 @@
     return self.probeHead;
 }
 
+/**
+ 미리보기 이미지를 반환한다.
+ 
+ @return 이미지 인스턴스
+ */
 - (UIImage *)thumbnailImage {
     NSData *imageData = [self dataForResourcesOfType:@"jpg"];
     
     return [UIImage imageWithData:imageData];
 }
 
+/**
+ 해당 인덱스의 프레임 정보를 반환한다.
+ 
+ @param index 인덱스
+ @return 프레임 정보 (뎁스)
+ */
 - (NSNumber *)frameInfoAtIndex:(NSInteger)index{
     if (self.frameInfos.count == 0) {
         [self loadFrameInfos];
@@ -140,6 +162,12 @@
     return self.frameInfos[index];
 }
 
+/**
+ 해당 인덱스의 프레임 데이터를 반환한다.
+ 
+ @param index 인덱스
+ @return 프레임 데이터
+ */
 - (NSData *)frameDataAtIndex:(NSInteger)index{
     if (self.frameDatas.count == 0) {
         [self loadFrameDatas];

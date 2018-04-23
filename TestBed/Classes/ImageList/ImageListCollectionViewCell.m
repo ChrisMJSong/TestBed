@@ -15,6 +15,11 @@
 @end
 
 @implementation ImageListCollectionViewCell
+/**
+ 아이템을 셀에 적용한다.
+ 
+ @param item 아이템 인스턴스
+ */
 - (void)updateItem:(ImageItem *)item {
     self.imageView.image = [item thumbnailImage];
 }
